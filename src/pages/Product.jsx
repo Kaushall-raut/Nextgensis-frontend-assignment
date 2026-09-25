@@ -6,7 +6,7 @@ import ProductCard from "../components/ProductCard";
 
 import { getProducts } from "../services/ProductApi";
 
-function Products() {
+function Product() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -85,4 +85,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Product;

@@ -1,43 +1,34 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Product from "./pages/Product";
+
 import ProtectedRoute from "./components/ProtectedRoute";
-import Navbar from "./components/Navbar";
-
-function Products() {
-  return (
-    <>
-      <Navbar />
-
-      <main className="p-8">
-        <h1 className="text-3xl font-bold">
-          Products Page
-        </h1>
-      </main>
-    </>
-  );
-}
 
 function App() {
   return (
     <BrowserRouter>
+
       <Routes>
 
+        {/* Login */}
         <Route
           path="/login"
           element={<Login />}
         />
 
+        {/* Products */}
         <Route
           path="/products"
           element={
             <ProtectedRoute>
-              <Products />
+              <Product />
             </ProtectedRoute>
           }
         />
 
       </Routes>
+
     </BrowserRouter>
   );
 }
