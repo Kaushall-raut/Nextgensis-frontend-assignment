@@ -1,16 +1,108 @@
-# React + Vite
+# Product Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Product Management Dashboard built with **React.js** and **Tailwind CSS** using the **DummyJSON API**.
 
-Currently, two official plugins are available:
+The application provides authentication, product listing, search, filtering, sorting, pagination, product details, and CRUD functionality with a responsive UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Authentication
 
-## Expanding the ESLint configuration
+- User login using DummyJSON authentication API
+- Protected product routes
+- Logout functionality
+- Authentication token stored in `localStorage`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Product Management
+
+- View products in a responsive table
+- Mobile-friendly product cards
+- Product details page
+- Product images
+- Product descriptions
+- Product pricing
+- Product ratings
+- Product stock information
+- Product reviews
+
+### Search & Filtering
+
+- Product search
+- Debounced search input
+- Search request cancellation using `AbortController`
+- Category filtering
+- Sorting by:
+  - Price: Low to High
+  - Price: High to Low
+  - Rating
+  - Title A-Z
+  - Title Z-A
+
+### Pagination
+
+- Server-side pagination using `limit` and `skip`
+- Page navigation
+- Page size selection
+- Pagination state synchronized with URL parameters
+
+### CRUD Operations
+
+- Add product
+- Edit product
+- Delete product
+- Delete confirmation modal
+- Form validation
+- Loading states during mutations
+
+
+
+
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React.js | Frontend framework |
+| React Router | Routing and protected routes |
+| Axios | API requests |
+| Tailwind CSS | Styling and responsive UI |
+| DummyJSON | Product and authentication API |
+| JavaScript | Application logic |
+| LocalStorage | Authentication and local persistence |
+| Vite | Development and build tool |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── Pagination.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductFilters.jsx
+│   ├── ProductForm.jsx
+│   ├── ProductTable.jsx
+│   ├── ProtectedRoute.jsx
+│   └── SearchBar.jsx
+│
+├── pages/
+│   ├── Login.jsx
+│   ├── Products.jsx
+│   ├── ProductDetails.jsx
+│   ├── AddProduct.jsx
+│   └── EditProduct.jsx
+│
+├── services/
+│   ├── axios.js
+│   └── productApi.js
+│
+├── utils/
+│   └── productStorage.js
+│
+├── App.jsx
+└── main.jsx
