@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 function ProductTable({ products }) {
   return (
-    <div className="hidden md:block overflow-x-auto">
+    <div className="hidden overflow-x-auto md:block">
 
       <table className="w-full border-collapse">
 
@@ -35,6 +37,7 @@ function ProductTable({ products }) {
         </thead>
 
         <tbody>
+
           {products.map((product) => (
             <tr
               key={product.id}
@@ -42,15 +45,24 @@ function ProductTable({ products }) {
             >
 
               <td className="p-4">
-                <img
-                  src={product.thumbnail}
-                  alt={product.title}
-                  className="h-14 w-14 rounded object-cover"
-                />
+                <Link
+                  to={`/products/${product.id}`}
+                >
+                  <img
+                    src={product.thumbnail}
+                    alt={product.title}
+                    className="h-14 w-14 rounded object-cover"
+                  />
+                </Link>
               </td>
 
               <td className="p-4 font-medium">
-                {product.title}
+                <Link
+                  to={`/products/${product.id}`}
+                  className="hover:underline"
+                >
+                  {product.title}
+                </Link>
               </td>
 
               <td className="p-4">
@@ -71,6 +83,7 @@ function ProductTable({ products }) {
 
             </tr>
           ))}
+
         </tbody>
 
       </table>
