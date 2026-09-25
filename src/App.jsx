@@ -1,23 +1,38 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import Login from "./pages/Login";
 import Product from "./pages/Product";
+import ProductDetails from "./pages/ProductDetails";
+import AddProduct from "./pages/AddProduct";
+import EditProduct from "./pages/EditProduct";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
 
-        {/* Login */}
+        <Route
+          path="/"
+          element={
+            <Navigate
+              to="/products"
+              replace
+            />
+          }
+        />
+
         <Route
           path="/login"
           element={<Login />}
         />
 
-        {/* Products */}
         <Route
           path="/products"
           element={
@@ -27,8 +42,44 @@ function App() {
           }
         />
 
-      </Routes>
+        <Route
+          path="/products/new"
+          element={
+            <ProtectedRoute>
+              <AddProduct />
+            </ProtectedRoute>
+          }
+        />
 
+        <Route
+          path="/products/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditProduct />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/products/:id"
+          element={
+            <ProtectedRoute>
+              <ProductDetails />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="*"
+          element={
+            <Navigate
+              to="/products"
+              replace
+            />
+          }
+        />
+
+      </Routes>
     </BrowserRouter>
   );
 }

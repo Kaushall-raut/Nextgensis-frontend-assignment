@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
+
 function ProductCard({ product }) {
   return (
-    <div className="rounded-lg border bg-white p-4 shadow-sm">
+    <Link
+      to={`/products/${product.id}`}
+      className="block rounded-lg border bg-white p-4 shadow-sm transition hover:shadow-md"
+    >
 
       <div className="flex gap-4">
 
@@ -40,7 +45,7 @@ function ProductCard({ product }) {
 
       </div>
 
-    </div>
+    </Link>
   );
 }
 
