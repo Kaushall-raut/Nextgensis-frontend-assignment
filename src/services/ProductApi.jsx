@@ -8,3 +8,12 @@ export const loginUser = async (username, password) => {
 
   return response.data;
 };
+
+// Get products
+export const getProducts = async (limit = 10, skip = 0) => {
+  const response = await api.get(
+    `/products?limit=${limit}&skip=${skip}`
+  );
+
+  return response.data;
+};
